@@ -15,7 +15,7 @@
   </head>
   <header>
      <div class="ui inverted vertical masthead center aligned segment">
-      <div class="ui text container"><h1 class="title">Food Enjoy Eat Love (F.E.E.L)</h1></div>
+      <div class="ui text container"><h1 class="title">Find Eat Enjoy Love (F.E.E.L)</h1></div>
     </div>
   </header>
   <body>
@@ -28,14 +28,13 @@
               <input type="text" name="Keyword" placeholder="Keyword" />
             </div>
             <br>
-            <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-                Cusine Type
+               <div class="ui compact selection dropdown" id="cuisineBtn">
                 <i class="dropdown icon"></i>
+               <div class="text">Cuisine Type</div>
                 <div class="menu">
                   <div class="item">American</div>
                   <div class="item">Asian</div>
-                  <div class="item">Bristish</div>
+                  <div class="item">British</div>
                   <div class="item">Caribbean</div>
                   <div class="item">Cental Europe</div>
                   <div class="item">Chinese</div>
@@ -53,13 +52,11 @@
                   <div class="item">South East Asian</div>
                 </div>
               </div>
-            </div>
           </br>
           <br>
-          <div class="ui compact menu">
-  <div class="ui simple dropdown item">
-    Meal Type
-    <i class="dropdown icon"></i>
+          <div class="ui compact selection dropdown">
+            <i class="dropdown icon"></i>
+              <div class="text">Meal Type</div>
     <div class="menu">
       <div class="item">Breakfast</div>
       <div class="item">Lunch</div>
@@ -68,13 +65,11 @@
       
     </div>
   </div>
-</div>
 </br>
 <br>
-          <div class="ui compact menu">
-  <div class="ui simple dropdown item">
-    Dietary Selection
-    <i class="dropdown icon"></i>
+          <div class="ui compact selection dropdown">
+            <i class="dropdown icon"></i>
+            <div class="text">Dietary Needs</div>
     <div class="menu">
       <div class="item">Balanced</div>
       <div class="item">High-Fiber</div>
@@ -83,7 +78,6 @@
       <div class="item">Low-Sodium</div>
       </div>
   </div>
-</div>
           </br>
           <br>
             <button class="ui button" type="submit">Submit</button>
