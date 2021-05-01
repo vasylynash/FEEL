@@ -34,3 +34,12 @@ h1 {
   text-align: center;
   white-space: nowrap;
 }
+
+#mealType {
+font-weight: lighter;
+}
+
+#search {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-photo%2Ffresh-raw-salad-ingredients-vegetables-260nw-1378200476.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fvegetables%2Bbackground&tbnid=GB4Hyt1HaWSq9M&vet=12ahUKEwiv7d2iq6nwAhUuBzQIHfVyAHgQMygAegQIARB8..i&docid=zg3qzv9klZ9POM&w=390&h=280&q=food%20and%20veggie%20css%20background%20image&ved=2ahUKEwiv7d2iq6nwAhUuBzQIHfVyAHgQMygAegQIARB8);
+}
