@@ -5,22 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-     rel="stylesheet" 
-     href="assets/css/reset.css"/>
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
       integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
       crossorigin="anonymous"
     />
-    <link 
-      rel="stylesheet" 
-      href="assets/css/style.css"/>
+    <link rel="stylesheet" href="style.css">
     <title>F.E.E.L.</title>
   </head>
   <header>
      <div class="ui inverted vertical masthead center aligned segment">
-      <div class="ui text container"><h1 class="title">Food Enjoy Eat Love (F.E.E.L)</h1></div>
+      <div class="ui text container"><h1 class="title">Find Eat Enjoy Love (F.E.E.L)</h1></div>
     </div>
   </header>
   <body>
@@ -33,63 +28,47 @@
               <input type="text" name="Keyword" placeholder="Keyword" />
             </div>
             <br>
-            <div class="ui compact menu">
-              <div class="ui simple dropdown item">
-                Cusine Type
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                  <div class="item">American</div>
-                  <div class="item">Asian</div>
-                  <div class="item">Bristish</div>
-                  <div class="item">Caribbean</div>
-                  <div class="item">Cental Europe</div>
-                  <div class="item">Chinese</div>
-                  <div class="item">Eastern Europe</div>
-                  <div class="item">French</div>
-                  <div class="item">Indian</div>
-                  <div class="item">Italian</div>
-                  <div class="item">Japanese</div>
-                  <div class="item">Kosher</div>
-                  <div class="item">Mediterranean</div>
-                  <div class="item">Mexican</div>
-                  <div class="item">Middle Eastern</div>
-                  <div class="item">Nordic</div>
-                  <div class="item">South American</div>
-                  <div class="item">South East Asian</div>
-
-      </div>
-              </div>
-            </div>
+            <select class="ui dropdown" id="cuisine">
+              <i class="dropdown icon"></i>
+              <option value="">Cuisine Type</option>
+              <option value="0">American</option>
+              <option value="1">Asian</option>
+              <option value="2">British</option>
+              <option value="3">Caribbean</option>
+              <option value="4">Central Europe</option>
+              <option value="5">Chinese</option>
+              <option value="6">Eastern Europe</option>
+              <option value="7">French</option>
+              <option value="8">Indian</option>
+              <option value="9">Italian</option>
+              <option value="10">Japanese</option>
+              <option value="11">Kosher</option>
+              <option value="12">Mediterranean</option>
+              <option value="13">Mexican</option>
+              <option value="14">Middle Eastern</option>
+              <option value="15">Nordic</option>
+              <option value="16">South American</option>
+              <option value="17">South East Asian</option>
+            </select>
           </br>
           <br>
-          <div class="ui compact menu">
-  <div class="ui simple dropdown item">
-    Meal Type
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item">Breakfast</div>
-      <div class="item">Lunch</div>
-      <div class="item">Dinner</div>
-      <div class="item">Snack</div>
-      
-    </div>
-  </div>
-</div>
+ <select class="ui dropdown" id="mealType">
+  <option value="">Meal Type</option>
+  <option value="1">Breakfast</option>
+  <option value="2">Lunch</option>
+    <option value="3">Dinner</option>
+      <option value="4">Snack</option>
+</select>
 </br>
 <br>
-          <div class="ui compact menu">
-  <div class="ui simple dropdown item">
-    Dietary Selection
-    <i class="dropdown icon"></i>
-    <div class="menu">
-      <div class="item">Balanced</div>
-      <div class="item">High-Fiber</div>
-      <div class="item">High-Protein</div>
-      <div class="item">Low-Carb</div>
-      <div class="item">Low-Sodium</div>
-      </div>
-  </div>
-</div>
+ <select class="ui dropdown" id="diet">
+  <option value="">Dietary Selection</option>
+  <option value="1">Balanced</option>
+  <option value="0">High-Fiber</option>
+    <option value="0">High-Protein</option>
+      <option value="0">Low-Carb</option>
+      <option value="0">Low-Sodium</option>
+</select>
           </br>
           <br>
             <button class="ui button" type="submit">Submit</button>
@@ -115,11 +94,5 @@
       integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
       crossorigin="anonymous"
     ></script>
-    <script 
-    src="assets/js/script.js"
-    ></script>
   </body>
-
-
-
 </html>
