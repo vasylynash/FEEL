@@ -19,7 +19,6 @@ function showRecipes() {
 
 function getUserInput() {
     var keyword = searchKeyword.val().trim();
-    console.log(keyword);
     return keyword;
 }
 
@@ -36,6 +35,13 @@ function parseToJson(response) {
 function renderSearchResults(data) {
     var recipes = data.hits;
     console.log(recipes);
+    for (let i = 0; i < recipes.length; i++) {
+        const recipe = recipes[i];
+        var name = recipe.recipe.label;
+        console.log(name);
+        var listItem = (`<div name="list-item-${i}"><h3>${name}</h3></div>`)
+        searchResults.append(listItem);
+    }
 }
 
 submitBtn.on("click", function (event) {
