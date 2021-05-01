@@ -12,7 +12,9 @@ const requestURL = "https://api.edamam.com/search";
 
 function showRecipes() {
     var searchOptions = getUserInput();
-    const parsedResponsePromise = recipePromise(keyword)
+    var queryString = $.param(searchOptions)
+    var url = requestURL + "?" + queryString + `&app_id=${APP_ID}&app_key=${APP_KEY}`;
+    const parsedResponsePromise = recipePromise(searchOptions)
         .then(parseToJson)
         .then(renderSearchResults)
 }
@@ -22,18 +24,15 @@ function getUserInput() {
         q: "",
         cuisineType: "",
         mealType: "",
-        diet: "",
-
     }
     searchOptions.q = searchKeyword.val().trim();
     searchOptions.cuisineType = cuisineSel.val();
     searchOptions.mealType = mealSel.val();
-    searchOptions.diet = dietSel.val();
-    console.log(searchOptions);
     return searchOptions;
 }
 
 function recipePromise(searchOptions) {
+    // console.log(searchOptions);
     var queryString = Object.keys(searchOptions).map(key => key + "=" + searchOptions[key]).join("&");
     // var queryString = $.param(searchOptions);
     console.log(queryString);
