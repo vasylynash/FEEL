@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-     rel="stylesheet" 
-     href="assets/css/reset.css"/>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css">
-    <title>F.E.E.L.</title>
-  </head>
-  <header>
-     <div class="ui inverted vertical masthead center aligned segment">
-      <div class="ui text container"><h1 class="title">Find Eat Enjoy Love (F.E.E.L)</h1></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>F.E.E.L.</title>
+</head>
+<header>
+  <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui text container">
+      <h1 class="title">Find Eat Enjoy Love (F.E.E.L)</h1>
     </div>
+  </div>
   </div>
 </header>
 
@@ -37,45 +34,45 @@
           <select class="ui dropdown" id="cuisine">
             <i class="dropdown icon"></i>
             <option value="">Cuisine Type</option>
-            <option value="0">American</option>
-            <option value="1">Asian</option>
-            <option value="2">British</option>
-            <option value="3">Caribbean</option>
-            <option value="4">Central Europe</option>
-            <option value="5">Chinese</option>
-            <option value="6">Eastern Europe</option>
-            <option value="7">French</option>
-            <option value="8">Indian</option>
-            <option value="9">Italian</option>
-            <option value="10">Japanese</option>
-            <option value="11">Kosher</option>
-            <option value="12">Mediterranean</option>
-            <option value="13">Mexican</option>
-            <option value="14">Middle Eastern</option>
-            <option value="15">Nordic</option>
-            <option value="16">South American</option>
-            <option value="17">South East Asian</option>
+            <option value="American">American</option>
+            <option value="Asian">Asian</option>
+            <option value="British">British</option>
+            <option value="Caribbean">Caribbean</option>
+            <option value="Central Europe">Central Europe</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Eastern Europe">Eastern Europe</option>
+            <option value="French">French</option>
+            <option value="Indian">Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Kosher">Kosher</option>
+            <option value="Mediterranean">Mediterranean</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+            <option value="Nordic">Nordic</option>
+            <option value="South American">South American</option>
+            <option value="South East Asian">South East Asian</option>
           </select>
           </br>
           <br>
           <select class="ui dropdown" id="mealType">
             <option value="">Meal Type</option>
-            <option value="1">Breakfast</option>
-            <option value="2">Lunch</option>
-            <option value="3">Dinner</option>
-            <option value="4">Snack</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
           </select>
           </br>
-          <br>
-          <select class="ui dropdown" id="diet">
+          <!-- <br> -->
+          <!-- <select class="ui dropdown" id="diet">
             <option value="">Dietary Selection</option>
-            <option value="1">Balanced</option>
-            <option value="0">High-Fiber</option>
-            <option value="0">High-Protein</option>
-            <option value="0">Low-Carb</option>
-            <option value="0">Low-Sodium</option>
-          </select>
-          </br>
+            <option value="Balanced">Balanced</option>
+            <option value="High-Fiber">High-Fiber</option>
+            <option value="High-Protein">High-Protein</option>
+            <option value="Low-Carb">Low-Carb</option>
+            <option value="Low-Sodium">Low-Sodium</option>
+          </select> -->
+          <!-- </br> -->
           <br>
           <button class="ui button" type="submit" id="submit">Submit</button>
         </form>
@@ -85,19 +82,13 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
       integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
-      crossorigin="anonymous"
-    ></script>
-    <script 
-    src="assets/js/script.js"> </script>
-  </body>
+      crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"> </script>
+</body>
 
 
 </html>
