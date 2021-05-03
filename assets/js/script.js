@@ -51,5 +51,13 @@ submitBtn.on("click", function (event) {
 
 //youTube API
 
-const youTubeUrl =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&part=suggestions&part=topicDetails&maxResults=20&myRating=like&key=[YOUR_API_KEY]";
+function videoRecipes() {
+  var youTubeApiUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&part=suggestions&part=topicDetails&maxResults=20&myRating=like&key=${youTubeApiKey}`;
+  var youTubeApiKey = `AIzaSyA3rkHsQ8EWGM113wT7U7Ie_BV6LG3g3oc`;
+  fetch(youTubeApiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+})
