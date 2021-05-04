@@ -14,12 +14,14 @@ const PAGE_SIZE = 20;
 
 function showRecipes() {
     var queryString = buildQueryString();
+
     var url =
         REQUEST_URL +
         "?" +
         queryString +
         `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE
         }`;
+    console.log(url);
     fetch(url)
         .then(parseToJson)
         .then(renderSearchResults)
@@ -67,7 +69,7 @@ function renderSearchResults(data) {
         const recipe = recipes[i];
         var name = recipe.recipe.label;
         // var videoQueryString = `./videos.html?q=${name}`;
-        console.log(videoQueryString);
+        // console.log(videoQueryString);
         var time = recipe.recipe.totalTime;
         var calories = recipe.recipe.calories;
         var url = recipe.recipe.url;
