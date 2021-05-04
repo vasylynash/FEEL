@@ -66,12 +66,20 @@ function renderSearchResults(data) {
         var time = recipe.recipe.totalTime;
         var calories = recipe.recipe.calories;
         var url = recipe.recipe.url;
+<<<<<<< HEAD
+=======
+        var imageURL = recipe.recipe.image;
+>>>>>>> main
 
         var resultSegment = $(`<div class="ui vertical segment"></div>`);
         var resultBody = $(`<div>`);
         var title = $(`<h3><a class="btn btn-link" href="${url}">${name}</a></h3>`);
         var bodyContentTime = $(`<p>Time to cook: ${time}</p>`);
         var bodyContentCalories = $(`<p>Calories: ${Math.floor(calories)}</p>`);
+<<<<<<< HEAD
+=======
+        var imageContainer = $(`<img class="ui medium circular image" src="${imageURL}" alt="Recipe image">`)
+>>>>>>> main
 
         var instructionsButton = (`<div class="ui animated purple button" tabindex="0">
                     <div class="visible content">Ingredients</div>
@@ -90,11 +98,19 @@ function renderSearchResults(data) {
         resultBody.append(title);
         resultBody.append(bodyContentTime);
         resultBody.append(bodyContentCalories);
+<<<<<<< HEAD
+=======
+        resultBody.append(imageContainer);
+>>>>>>> main
         resultBody.append(instructionsButton);
         resultBody.append(videosButton);
         resultSegment.append(resultBody);
         searchResults.append(resultSegment);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     var count = data.count;
     var isLastPage = ((currentPage + 1) * PAGE_SIZE) >= count;
     var isFirstPage = (currentPage === 0);
