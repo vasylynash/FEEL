@@ -18,12 +18,18 @@
     <header>
       <h1>Youtube Recipe Video Results</h1>
     </header>
-    <div class="ui form">
-      <div class="field">
-        <label>Recipe Search</label>
-        <input type="text" />
-      </div>
-    </div>
+    <p>
+      <input
+        type="text"
+        id="search"
+        placeholder="search food"
+        autocomplete="off"
+        class="form-control"
+      />
+    </p>
+    <p>
+      <input type="submit" value="search" id="submit" class="ui olive button" />
+    </p>
     <div id="results"></div>
 
     <script
