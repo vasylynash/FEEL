@@ -1,5 +1,4 @@
 body {
-<<<<<<< HEAD
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -48,40 +47,3 @@ font-weight: lighter;
 .list {
 text-align:center;
 } */
-=======
-    font-family: "Source Sans Pro", sans-serif;
-  }
-  
-  header {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg);
-    background-size: cover;
-    height: 65vh;
-  }
-  
-  .title {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  h1 {
-    font-size: 3em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-  .quote {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    position: absolute;
-    top: 28%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    white-space: nowrap;
-  }
->>>>>>> main
