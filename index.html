@@ -23,10 +23,12 @@
       <div class="two column stackable ui grid">
         <div class="four wide column">
           <form class="ui form segment">
-            <div class="field">
-              <input type="text" name="Keyword" id="keyword" placeholder="Search Recipes" />
+            <div class="ui segment">
+              <div class="input">
+                <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
+              </div>
             </div>
-            <br>
+            <div class="ui segment">
             <select class="ui dropdown" id="cuisine">
               <i class="dropdown icon"></i>
               <option value="">Cuisine Type</option>
@@ -49,58 +51,41 @@
               <option value="South American">South American</option>
               <option value="South East Asian">South East Asian</option>
             </select>
-          </br>
-          <br>
- <select class="ui dropdown" id="mealType">
-  <option value="">Meal Type</option>
-  <option value="Breakfast">Breakfast</option>
-  <option value="Lunch">Lunch</option>
-    <option value="Dinner">Dinner</option>
-      <option value="Snack">Snack</option>
-</select>
-</br>
-<!-- <br>
- <select class="ui dropdown" id="diet">
-  <option value="">Dietary Selection</option>
-  <option value="1">Balanced</option>
-  <option value="0">High-Fiber</option>
-    <option value="0">High-Protein</option>
-      <option value="0">Low-Carb</option>
-      <option value="0">Low-Sodium</option>
-</select>
-          </br> -->
-          <br>
-            <button class="ui button" type="submit" id="submit">Submit</button>
-          </form>
-        </div>
-        <div class="twelve wide column" id="search">
-          <div id="search-results" class="ui list segment">            
           </div>
+          <div class="ui segment">
+            <select class="ui dropdown" id="mealType">
+              <option value="">Meal Type</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Snack">Snack</option>
+            </select>
+          </div>
+          <button class="ui primary bottom attached button" type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+      <div class="twelve wide column white">
+        <div id="search-results" class="ui list">
+
         </div>
       </div>
+      <!-- modal -->
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Ingredients
+        </div>
+        <div class="description">
+        </div>
+
+        <div class="ui positive right labeled icon button">
+          Close
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+      <!-- end of modal -->
     </div>
-<<<<<<< HEAD
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
-      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
-=======
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
-      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
-      crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"> </script>
-    <script src="./assets/js/videos.js"></script>
-</body>
+  </div>
 
 
   </div>
@@ -112,5 +97,4 @@
   <script src="assets/js/script.js"> </script>
 </body>
 
->>>>>>> main
 </html>
