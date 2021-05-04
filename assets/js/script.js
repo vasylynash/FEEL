@@ -11,6 +11,7 @@ const APP_KEY = "4147e89469febd4e4e9264cc0a6e7cbe";
 const APP_ID = "c36e8feb";
 const REQUEST_URL = "https://api.edamam.com/search";
 const PAGE_SIZE = 20;
+<<<<<<< Updated upstream
 
 function showRecipes() {
 <<<<<<< Updated upstream
@@ -44,6 +45,26 @@ function recipePromise(keyword) {
         })
 }
 
+=======
+
+
+function showRecipes() {
+    var queryString = buildQueryString();
+    var url = REQUEST_URL + "?" + queryString + `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE}`;
+    fetch(url)
+        .then(parseToJson)
+        .then(renderSearchResults)
+        .catch(function (errorMessage) {
+            if (typeof errorMessage !== "string") {
+                errorMessage = "Can't connect to server";
+            }
+            searchResults.empty();
+            var error = $(`<div class="error"><h3>${errorMessage}</3></div>`)
+            searchResults.append(error);
+        })
+}
+
+>>>>>>> Stashed changes
 function buildQueryString() {
     var searchOptions = {
         q: searchKeyword.val().trim(),
@@ -57,11 +78,15 @@ function buildQueryString() {
     });
     var queryString = $.param(searchOptions);
     return queryString;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
 //TODO move to helpers.js
 function parseToJson(response) {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   return response.json();
 }
@@ -97,6 +122,8 @@ function videoRecipes() {
         console.log(data);
 })
 =======
+=======
+>>>>>>> Stashed changes
     if (!response.ok) {
         throw "Can't retrieve data";
     }
