@@ -26,55 +26,45 @@
     <div class="two column stackable ui grid">
       <div class="four wide column white">
         <form class="ui form">
-          <div class="field">
-            <!-- <label>Keyword</label> -->
-            <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
+          <div class="ui segment">
+            <div class="input">
+              <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
+            </div>
           </div>
-          <br>
-          <select class="ui dropdown" id="cuisine">
-            <i class="dropdown icon"></i>
-            <option value="">Cuisine Type</option>
-            <option value="American">American</option>
-            <option value="Asian">Asian</option>
-            <option value="British">British</option>
-            <option value="Caribbean">Caribbean</option>
-            <option value="Central Europe">Central Europe</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Eastern Europe">Eastern Europe</option>
-            <option value="French">French</option>
-            <option value="Indian">Indian</option>
-            <option value="Italian">Italian</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Kosher">Kosher</option>
-            <option value="Mediterranean">Mediterranean</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Middle Eastern">Middle Eastern</option>
-            <option value="Nordic">Nordic</option>
-            <option value="South American">South American</option>
-            <option value="South East Asian">South East Asian</option>
-          </select>
-          </br>
-          <br>
-          <select class="ui dropdown" id="mealType">
-            <option value="">Meal Type</option>
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
-            <option value="Snack">Snack</option>
-          </select>
-          </br>
-          <!-- <br> -->
-          <!-- <select class="ui dropdown" id="diet">
-            <option value="">Dietary Selection</option>
-            <option value="Balanced">Balanced</option>
-            <option value="High-Fiber">High-Fiber</option>
-            <option value="High-Protein">High-Protein</option>
-            <option value="Low-Carb">Low-Carb</option>
-            <option value="Low-Sodium">Low-Sodium</option>
-          </select> -->
-          <!-- </br> -->
-          <br>
-          <button class="ui button" type="submit" id="submit">Submit</button>
+          <div class="ui segment">
+            <select class="ui dropdown" id="cuisine">
+              <i class="dropdown icon"></i>
+              <option value="">Cuisine Type</option>
+              <option value="American">American</option>
+              <option value="Asian">Asian</option>
+              <option value="British">British</option>
+              <option value="Caribbean">Caribbean</option>
+              <option value="Central Europe">Central Europe</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Eastern Europe">Eastern Europe</option>
+              <option value="French">French</option>
+              <option value="Indian">Indian</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Kosher">Kosher</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Middle Eastern">Middle Eastern</option>
+              <option value="Nordic">Nordic</option>
+              <option value="South American">South American</option>
+              <option value="South East Asian">South East Asian</option>
+            </select>
+          </div>
+          <div class="ui segment">
+            <select class="ui dropdown" id="mealType">
+              <option value="">Meal Type</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Snack">Snack</option>
+            </select>
+          </div>
+          <button class="ui primary bottom attached button" type="submit" id="submit">Submit</button>
         </form>
       </div>
       <div class="twelve wide column white">
@@ -82,14 +72,32 @@
 
         </div>
       </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
-      integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
-      crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"> </script>
-</body>
+      <!-- modal -->
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Ingredients
+        </div>
+        <div class="description">
+        </div>
 
+        <div class="ui positive right labeled icon button">
+          Close
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+      <!-- end of modal -->
+    </div>
+  </div>
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+    integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+    crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"> </script>
+</body>
 
 </html>
