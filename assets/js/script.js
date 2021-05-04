@@ -21,7 +21,7 @@ function showRecipes() {
         queryString +
         `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE
         }`;
-    console.log(url);
+    // console.log(url);
     fetch(url)
         .then(parseToJson)
         .then(renderSearchResults)
@@ -153,8 +153,7 @@ searchResults.on("click", "#ingredients", function () {
         .modal("show");
 });
 
-searchResults.on("click", "#videos", function () {
-    var videoQueryString = "./videos.html?q=" + $(this).closest("h3").val();
-    console.log(videoQueryString);
+searchResults.on("click", "#videos", function (event) {
+    var videoQueryString = "./videos.html?q=" + $(event.target).parent().children().eq(0).text();
     location.assign(videoQueryString);
 });
