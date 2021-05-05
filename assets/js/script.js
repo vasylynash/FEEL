@@ -12,10 +12,16 @@ const APP_ID = "c36e8feb";
 const REQUEST_URL = "https://api.edamam.com/search";
 const PAGE_SIZE = 20;
 
-
 function showRecipes() {
     var queryString = buildQueryString();
-    var url = REQUEST_URL + "?" + queryString + `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE}`;
+
+    var url =
+        REQUEST_URL +
+        "?" +
+        queryString +
+        `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE
+        }`;
+
     fetch(url)
         .then(parseToJson)
         .then(renderSearchResults)
@@ -24,9 +30,9 @@ function showRecipes() {
                 errorMessage = "Can't connect to server";
             }
             searchResults.empty();
-            var error = $(`<div class="error"><h3>${errorMessage}</3></div>`)
+            var error = $(`<div class="error"><h3>${errorMessage}</3></div>`);
             searchResults.append(error);
-        })
+        });
 }
 
 function buildQueryString() {
@@ -53,54 +59,68 @@ function parseToJson(response) {
 }
 
 function renderSearchResults(data) {
-
     var recipes = data.hits;
-    console.log(recipes);
     if (!recipes.length) {
         throw "No results found";
     }
     searchResults.empty();
     for (let i = 0; i < recipes.length; i++) {
         const recipe = recipes[i];
-        var name = recipe.recipe.label;
+        let name = recipe.recipe.label;
         var time = recipe.recipe.totalTime;
         var calories = recipe.recipe.calories;
         var url = recipe.recipe.url;
+        var imageURL = recipe.recipe.image;
+        var ingredients = recipe.recipe.ingredientLines;
+
+        $("#ingredientsList").html("<p>" + ingredients.join("</p><p>") + "</p>");
 
         var resultSegment = $(`<div class="ui vertical segment"></div>`);
         var resultBody = $(`<div>`);
-        var title = $(`<h3><a class="btn btn-link" href="${url}">${name}</a></h3>`);
+        var title = $(`<h3><a class="btn btn-link" href="${url}" id="recipe-name" value="${name}">${name}</a></h3>`);
         var bodyContentTime = $(`<p>Time to cook: ${time}</p>`);
         var bodyContentCalories = $(`<p>Calories: ${Math.floor(calories)}</p>`);
+        var imageContainer = $(
+            `<img class="ui small circular image" src="${imageURL}" alt="Recipe image">`
+        );
 
-        var instructionsButton = (`<div class="ui animated purple button" tabindex="0">
+        var instructionsButton = `<button class="ui animated purple button" id="ingredients" tabindex="0">
                     <div class="visible content">Ingredients</div>
                         <div class="hidden content">
                         <i class="right arrow icon"></i>
                         </div>
                     </div>
-                    </div>`);
-        var videosButton = (`<div class="ui animated youtube button" tabindex="0">
-                    <div class="visible content">Find videos</div>
-                        <div class="hidden content">
-                        <i class="youtube icon"></i>
-                        </div>
-                    </div>
-                    </div>`);
+                    </button>`;
+        var videosButton = $(`<button class="ui youtube button" id="videos" tabindex="0">
+                    <i class="youtube icon"></i>
+                    Find Videos
+                    </button>`);
+
+        videosButton.on("click", function () {
+            var videoQueryString = `./videos.html?q=${encodeURIComponent(name)}`;
+            location.assign(videoQueryString);
+        })
+
         resultBody.append(title);
         resultBody.append(bodyContentTime);
         resultBody.append(bodyContentCalories);
+        resultBody.append(imageContainer);
         resultBody.append(instructionsButton);
         resultBody.append(videosButton);
         resultSegment.append(resultBody);
         searchResults.append(resultSegment);
     }
-    var count = data.count;
-    var isLastPage = ((currentPage + 1) * PAGE_SIZE) >= count;
-    var isFirstPage = (currentPage === 0);
 
-    var previousButton = $(`<button class="left attached ui button" id="previous">Previous</button>`);
-    var nextButton = $(`<button class="left attached ui button" id="next">Next</button>`);
+    var count = data.count;
+    var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
+    var isFirstPage = currentPage === 0;
+
+    var previousButton = $(
+        `<button class="left attached ui button" id="previous">Previous</button>`
+    );
+    var nextButton = $(
+        `<button class="left attached ui button" id="next">Next</button>`
+    );
     searchResults.append(previousButton);
     if (isFirstPage) {
         previousButton.addClass("disabled");
@@ -125,4 +145,9 @@ searchResults.on("click", "#next", function () {
 searchResults.on("click", "#previous", function () {
     currentPage--;
     showRecipes();
+});
+
+searchResults.on("click", "#ingredients", function () {
+    $("#modal")
+        .modal("show");
 });
