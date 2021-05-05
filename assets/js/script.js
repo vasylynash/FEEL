@@ -60,22 +60,18 @@ function parseToJson(response) {
 
 function renderSearchResults(data) {
     var recipes = data.hits;
-    // console.log(recipes);
     if (!recipes.length) {
         throw "No results found";
     }
     searchResults.empty();
     for (let i = 0; i < recipes.length; i++) {
         const recipe = recipes[i];
-        var name = recipe.recipe.label;
-        // var videoQueryString = `./videos.html?q=${name}`;
-        // console.log(videoQueryString);
+        let name = recipe.recipe.label;
         var time = recipe.recipe.totalTime;
         var calories = recipe.recipe.calories;
         var url = recipe.recipe.url;
         var imageURL = recipe.recipe.image;
         var ingredients = recipe.recipe.ingredientLines;
-        // console.log(ingredients);
 
         $("#ingredientsList").html("<p>" + ingredients.join("</p><p>") + "</p>");
 
@@ -85,23 +81,26 @@ function renderSearchResults(data) {
         var bodyContentTime = $(`<p>Time to cook: ${time}</p>`);
         var bodyContentCalories = $(`<p>Calories: ${Math.floor(calories)}</p>`);
         var imageContainer = $(
-            `<img class="ui medium circular image" src="${imageURL}" alt="Recipe image">`
+            `<img class="ui small circular image" src="${imageURL}" alt="Recipe image">`
         );
 
-        var instructionsButton = `<div class="ui animated purple button" id="ingredients" tabindex="0">
+        var instructionsButton = `<button class="ui animated purple button" id="ingredients" tabindex="0">
                     <div class="visible content">Ingredients</div>
                         <div class="hidden content">
                         <i class="right arrow icon"></i>
                         </div>
                     </div>
-                    </div>`;
-        var videosButton = `<div class="ui animated youtube button" id="videos" tabindex="0">
-                    <div class="visible content">Find videos</div>
-                        <div class="hidden content">
-                        <i class="youtube icon"></i>
-                        </div>
-                    </div>
-                    </div>`;
+                    </button>`;
+        var videosButton = $(`<button class="ui youtube button" id="videos" tabindex="0">
+                    <i class="youtube icon"></i>
+                    Find Videos
+                    </button>`);
+
+        videosButton.on("click", function () {
+            var videoQueryString = `./videos.html?q=${encodeURIComponent(name)}`;
+            location.assign(videoQueryString);
+        })
+
         resultBody.append(title);
         resultBody.append(bodyContentTime);
         resultBody.append(bodyContentCalories);
@@ -153,7 +152,9 @@ searchResults.on("click", "#ingredients", function () {
         .modal("show");
 });
 
-searchResults.on("click", "#videos", function (event) {
-    var videoQueryString = "./videos.html?q=" + $(event.target).parent().children().eq(0).text();
-    location.assign(videoQueryString);
-});
+// searchResults.on("click", "#videos", function (event) {
+//     var videoQueryString = `./videos.html?q=${$(event.target).closest("h3").text()}`;
+//     console.log($(event.target).closest("h3").text());
+//     console.log(videoQueryString);
+//     // location.assign(videoQueryString);
+// });

@@ -47,3 +47,13 @@ font-weight: lighter;
 .list {
 text-align:center;
 } */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(199, 232, 245);
+  /* color: white;
+  text-align: center; */
+}
