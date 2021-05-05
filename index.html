@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
-      crossorigin="anonymous"/>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>F.E.E.L.</title>
-  </head>
-  <header>
-     <!-- <div class="ui inverted vertical masthead center aligned segment"> -->
-      <div class="ui text container"><h1 class="title">(F.E.E.L)</h1></div>
-      <div class="ui text container"><h2 class="quote">Find, Eat, Enjoy, Love</h2></div>
-    </div>
-  </header>
-  <body>
-    <div class="container">
-      <div class="two column stackable ui grid">
-        <div class="four wide column">
-          <form class="ui form segment">
-            <div class="ui segment">
-              <div class="input">
-                <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
-              </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://developer.edamam.com/attribution/badge.js"></script>
+  <title>F.E.E.L.</title>
+</head>
+<header>
+  <div class="ui text container">
+    <h1 class="title">(F.E.E.L)</h1>
+  </div>
+  <div class="ui text container">
+    <h2 class="quote">Find, Eat, Enjoy, Love</h2>
+  </div>
+  </div>
+</header>
+
+<body>
+  <div class="container">
+    <div class="two column stackable ui grid">
+      <div class="four wide column">
+        <form class="ui form segment">
+          <div class="ui segment">
+            <div class="input">
+              <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
             </div>
-            <div class="ui segment">
+          </div>
+          <div class="ui segment">
             <select class="ui dropdown" id="cuisine">
               <i class="dropdown icon"></i>
               <option value="">Cuisine Type</option>
@@ -62,33 +68,29 @@
             </select>
           </div>
           <button class="ui primary bottom attached button" type="submit" id="submit">Submit</button>
-        </form>
       </div>
+      </form>
       <div class="twelve wide column white">
         <div id="search-results" class="ui list">
 
         </div>
       </div>
-      <!-- modal -->
-      <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">
-          Ingredients
-        </div>
-        <div class="description">
-        </div>
+    </div>
 
-        <div class="ui positive right labeled icon button">
-          Close
-          <i class="checkmark icon"></i>
-        </div>
+    <div class="ui modal" id="modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Ingredients
       </div>
-      <!-- end of modal -->
+      <div class="description scrolling content" id="ingredientsList">
+      </div>
     </div>
   </div>
+  <footer>
+    <div id="edamam-badge" data-color="white"></div>
+    </div>
+  </footer>
 
-
-  </div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
