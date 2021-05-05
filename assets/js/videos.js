@@ -14,14 +14,38 @@ function getParams() {
 
     var searchURL = YOUTUBE_URL + youtubeURLParams.toString();
     searchVideos(searchURL);
-    // console.log(youtubeURLParams.toString());
 }
 
 function searchVideos(url) {
     fetch(url)
-        .then(response => response.json())
-        .then(data => console.log(data))
+        .then(parseToJson)
+        .then(renderSearchVideos)
+}
 
+//TODO move to helpers.js
+function parseToJson(response) {
+    if (!response.ok) {
+        throw "Can't retrieve data";
+    }
+    return response.json();
+}
+
+function renderSearchVideos(data) {
+    var videosArray = data.items;
+    console.log(videosArray);
+    for (let i = 0; i < videosArray.length; i++) {
+        const video = videosArray[i];
+        let id = video.id.videoId;
+        console.log(id);
+
+        var videoContainer = $(`<div class="ui embed" data-source="youtube" data-url="https://www.youtube.com/embed/${id}"></div>`);
+        var videoEl = $(`<div class="embed">`);
+        var videoContent = $('<iframe width="50%" height="50%" frameborder="0" scrolling="no"></iframe>')
+        videoContainer.append(videoEl);
+        videoEl.append(videoContent);
+        $("#videos-search").append(videoContainer);
+        $('.ui.embed').embed();
+    }
 }
 
 getParams();
