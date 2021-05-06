@@ -35,6 +35,7 @@ h1 {
   text-align: center;
   white-space: nowrap;
 }
+
 #mealType {
 font-weight: lighter;
 }
@@ -64,4 +65,10 @@ li:hover {
 
 .error {
   color: red;
+}
+
+@media screen and (max-width: 576px) {
+  #History {
+    display: none;
+  }
 }
