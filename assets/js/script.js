@@ -1,5 +1,3 @@
-// import { parseToJson } from "./helpers.js"
-
 var searchKeyword = $("#keyword");
 var cuisineSel = $("#cuisine");
 var mealSel = $("#mealType");
