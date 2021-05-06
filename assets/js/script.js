@@ -9,8 +9,8 @@ var clearButton = $("#clear");
 var keyword = "";
 var currentPage = 0;
 
-const APP_KEY = "4147e89469febd4e4e9264cc0a6e7cbe";
-const APP_ID = "c36e8feb";
+const APP_KEY = "48bfc6b8a5d82637e1505969c10f6886";
+const APP_ID = "b3b0fbc6";
 const REQUEST_URL = "https://api.edamam.com/search";
 const PAGE_SIZE = 20;
 
