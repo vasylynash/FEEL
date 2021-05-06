@@ -53,12 +53,12 @@ function buildQueryString() {
 }
 
 // TODO move to helpers.js
-// function parseToJson(response) {
-//     if (!response.ok) {
-//         throw "Can't retrieve data";
-//     }
-//     return response.json();
-// }
+function parseToJson(response) {
+    if (!response.ok) {
+        throw "Can't retrieve data";
+    }
+    return response.json();
+}
 
 function renderSearchResults(data) {
     var recipes = data.hits;
