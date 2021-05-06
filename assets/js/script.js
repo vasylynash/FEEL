@@ -1,10 +1,14 @@
+// import { parseToJson } from "./helpers.js"
+
 var searchKeyword = $("#keyword");
 var cuisineSel = $("#cuisine");
 var mealSel = $("#mealType");
-var dietSel = $("#diet");
 var submitBtn = $("#submit");
 var searchResults = $("#search-results");
+var list = $(".list-group");
+var clearButton = $("#clear");
 
+var keyword = "";
 var currentPage = 0;
 
 const APP_KEY = "4147e89469febd4e4e9264cc0a6e7cbe";
@@ -50,13 +54,13 @@ function buildQueryString() {
     return queryString;
 }
 
-//TODO move to helpers.js
-function parseToJson(response) {
-    if (!response.ok) {
-        throw "Can't retrieve data";
-    }
-    return response.json();
-}
+// TODO move to helpers.js
+// function parseToJson(response) {
+//     if (!response.ok) {
+//         throw "Can't retrieve data";
+//     }
+//     return response.json();
+// }
 
 function renderSearchResults(data) {
     var recipes = data.hits;
@@ -77,20 +81,20 @@ function renderSearchResults(data) {
 
         var resultSegment = $(`<div class="ui vertical segment"></div>`);
         var resultBody = $(`<div>`);
-        var title = $(`<h3><a class="btn btn-link" href="${url}" id="recipe-name" value="${name}">${name}</a></h3>`);
+        var title = $(`<h3><a class="btn btn-link" href="${url}" target="_blank" rel="noopener noreferrer" id="recipe-name" value="${name}">${name}</a></h3>`);
         var bodyContentTime = $(`<p>Time to cook: ${time}</p>`);
         var bodyContentCalories = $(`<p>Calories: ${Math.floor(calories)}</p>`);
         var imageContainer = $(
             `<img class="ui small circular image" src="${imageURL}" alt="Recipe image">`
         );
 
-        var instructionsButton = `<button class="ui animated purple button" id="ingredients" tabindex="0">
+        var instructionsButton = $(`<button class="ui animated purple button" id="ingredients" tabindex="0">
                     <div class="visible content">Ingredients</div>
                         <div class="hidden content">
                         <i class="right arrow icon"></i>
                         </div>
                     </div>
-                    </button>`;
+                    </button>`);
         var videosButton = $(`<button class="ui youtube button" id="videos" tabindex="0">
                     <i class="youtube icon"></i>
                     Find Videos
@@ -98,7 +102,8 @@ function renderSearchResults(data) {
 
         videosButton.on("click", function () {
             var videoQueryString = `./videos.html?q=${encodeURIComponent(name)}`;
-            location.assign(videoQueryString);
+            // location.assign(videoQueryString);
+            window.open(videoQueryString, "_blank")
         })
 
         resultBody.append(title);
@@ -131,8 +136,44 @@ function renderSearchResults(data) {
     }
 }
 
+function getUserInput() {
+    if (searchKeyword.val().trim() !== "") {
+        keyword = searchKeyword.val().trim();
+    } else {
+        keyword = "";
+    }
+}
+
+function saveToLocalStorage(keyword) {
+    var keywords = JSON.parse(localStorage.getItem("keywords") || "[]");
+    if (keyword !== "" && keyword !== undefined && !keywords.includes(keyword)) {
+        keywords.push(keyword);
+        localStorage.setItem("keywords", JSON.stringify(keywords));
+    }
+}
+
+function renderHistory() {
+    var array = JSON.parse(localStorage.getItem("keywords") || "[]");
+    list.empty();
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+        var listEl = $("<li>" + element + "</li>");
+        $(listEl).attr("class", "list-group-item");
+        $(listEl).attr("data-value", element.toLowerCase());
+        list.append(listEl);
+    }
+}
+
+function clearHistory() {
+    localStorage.clear();
+    renderHistory();
+}
+
 submitBtn.on("click", function (event) {
     event.preventDefault();
+    getUserInput();
+    saveToLocalStorage(keyword);
+    renderHistory();
     currentPage = 0;
     showRecipes();
 });
@@ -151,3 +192,7 @@ searchResults.on("click", "#ingredients", function () {
     $("#modal")
         .modal("show");
 });
+
+clearButton.on("click", clearHistory);
+
+$(window).on("load", renderHistory);
