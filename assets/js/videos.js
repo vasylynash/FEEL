@@ -18,6 +18,13 @@ function getParams() {
   searchVideos(searchURL);
 }
 
+function parseToJson(response) {
+    if (!response.ok) {
+        throw "Can't retrieve data";
+    }
+    return response.json();
+}
+
 function searchVideos(url) {
   fetch(url).then(parseToJson).then(renderSearchVideos);
 }

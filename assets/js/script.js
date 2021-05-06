@@ -33,7 +33,12 @@ function showRecipes() {
         errorMessage = "Can't connect to server";
       }
       searchResults.empty();
-      var error = $(`<div class="error"><h3>${errorMessage}</3></div>`);
+      var error = $(`<div class="ui placeholder segment">
+                            <div class="ui icon header">
+                                <i class="search icon"></i>
+                                ${errorMessage}
+                            </div>
+                        </div>`);
       searchResults.append(error);
     });
 }
@@ -53,13 +58,12 @@ function buildQueryString() {
   return queryString;
 }
 
-// TODO move to helpers.js
-// function parseToJson(response) {
-//     if (!response.ok) {
-//         throw "Can't retrieve data";
-//     }
-//     return response.json();
-// }
+function parseToJson(response) {
+  if (!response.ok) {
+    throw "Can't retrieve data";
+  }
+  return response.json();
+}
 
 function renderSearchResults(data) {
   var recipes = data.hits;
@@ -69,7 +73,7 @@ function renderSearchResults(data) {
   searchResults.empty();
   for (let i = 0; i < recipes.length; i++) {
     const recipe = recipes[i];
-    let name = recipe.recipe.label;
+    const name = recipe.recipe.label;
     var time = recipe.recipe.totalTime;
     var calories = recipe.recipe.calories;
     var url = recipe.recipe.url;
@@ -103,7 +107,6 @@ function renderSearchResults(data) {
 
     videosButton.on("click", function () {
       var videoQueryString = `./videos.html?q=${encodeURIComponent(name)}`;
-      // location.assign(videoQueryString);
       window.open(videoQueryString, "_blank");
     });
 
@@ -121,20 +124,33 @@ function renderSearchResults(data) {
   var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
   var isFirstPage = currentPage === 0;
 
-  var previousButton = $(
-    `<button class="left attached ui button" id="previous">Previous</button>`
-  );
-  var nextButton = $(
-    `<button class="left attached ui button" id="next">Next</button>`
-  );
-  searchResults.append(previousButton);
-  if (isFirstPage) {
-    previousButton.addClass("disabled");
-  }
-  searchResults.append(nextButton);
-  if (isLastPage) {
-    nextButton.addClass("disabled");
-  }
+  resultBody.append(title);
+  resultBody.append(bodyContentTime);
+  resultBody.append(bodyContentCalories);
+  resultBody.append(imageContainer);
+  resultBody.append(instructionsButton);
+  resultBody.append(videosButton);
+  resultSegment.append(resultBody);
+  searchResults.append(resultSegment);
+}
+
+var count = data.count;
+var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
+var isFirstPage = currentPage === 0;
+
+var previousButton = $(
+  `<button class="left attached ui button" id="previous">Previous</button>`
+);
+var nextButton = $(
+  `<button class="left attached ui button" id="next">Next</button>`
+);
+searchResults.append(previousButton);
+if (isFirstPage) {
+  previousButton.addClass("disabled");
+}
+searchResults.append(nextButton);
+if (isLastPage) {
+  nextButton.addClass("disabled");
 }
 
 function getUserInput() {
