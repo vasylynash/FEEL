@@ -1,6 +1,6 @@
 body {
-  font-family: "Source Sans Pro", sans-serif;
-}
+    font-family: "Source Sans Pro", sans-serif;
+  }
 
 header {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -36,10 +36,6 @@ h1 {
   white-space: nowrap;
 }
 
-#mealType {
-font-weight: lighter;
-}
-
 ul {
   list-style-type: none;
   margin: 5px;
@@ -65,4 +61,10 @@ li:hover {
 
 .error {
   color: red;
+}
+
+@media screen and (max-width: 576px) {
+  #history {
+    display: none;
+  }
 }
