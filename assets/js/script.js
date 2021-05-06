@@ -78,19 +78,22 @@ function renderSearchResults(data) {
         var url = recipe.recipe.url;
         var imageURL = recipe.recipe.image;
         var ingredients = recipe.recipe.ingredientLines;
+        var sevings = recipe.recipe.yield;
 
         $("#ingredientsList").html("<p>" + ingredients.join("</p><p>") + "</p>");
 
-        var resultSegment = $(`<div class="ui vertical segment"></div>`);
-        var resultBody = $(`<div>`);
+        // var resultSegment = $(`<div class="ui vertical segment"></div>`);
+        // var resultBody = $(`<div>`);
+
         var title = $(`<h3><a class="btn btn-link" href="${url}" target="_blank" rel="noopener noreferrer" id="recipe-name" value="${name}">${name}</a></h3>`);
-        var bodyContentTime = $(`<p>Time to cook: ${time}</p>`);
+        var bodyContentTime = time !== 0 ? $(`<p>Time to cook: ${time}</p>`) : "";
         var bodyContentCalories = $(`<p>Calories: ${Math.floor(calories)}</p>`);
+        var bodyServings = $(`<p>Sevings: ${sevings}</p>`);
         var imageContainer = $(
-            `<img class="ui small circular image" src="${imageURL}" alt="Recipe image">`
+            `<img class="ui small rounded image" src="${imageURL}" alt="Recipe image">`
         );
 
-        var instructionsButton = $(`<button class="ui animated purple button" id="ingredients" tabindex="0">
+        var instructionsButton = $(`<button class="ui animated teal button" id="ingredients" tabindex="0">
                     <div class="visible content">Ingredients</div>
                         <div class="hidden content">
                         <i class="right arrow icon"></i>
@@ -107,14 +110,36 @@ function renderSearchResults(data) {
             window.open(videoQueryString, "_blank")
         })
 
-        resultBody.append(title);
-        resultBody.append(bodyContentTime);
-        resultBody.append(bodyContentCalories);
-        resultBody.append(imageContainer);
-        resultBody.append(instructionsButton);
-        resultBody.append(videosButton);
-        resultSegment.append(resultBody);
-        searchResults.append(resultSegment);
+        // resultBody.append(title);
+        // resultBody.append(bodyContentTime);
+        // resultBody.append(bodyContentCalories);
+        // resultBody.append(imageContainer);
+        // resultBody.append(instructionsButton);
+        // resultBody.append(videosButton);
+        // resultSegment.append(resultBody);
+        // searchResults.append(resultSegment);
+
+        //NEW STAFF
+        var resultsContainer = $(`<div class="ui internally celled grid" id="results">`);
+        var resultsRow = $(`<div class="row">`);
+        var divider = $(`<div class="ui divider">`)
+        var textResultsContainer = $(`<div class="ten wide column">`);
+        var imageResultsContainer = $(`<div class="three wide column" id="image-container">`);
+
+        textResultsContainer.append(title);
+        textResultsContainer.append(bodyContentTime);
+        textResultsContainer.append(bodyContentCalories);
+        textResultsContainer.append(bodyServings);
+        textResultsContainer.append(instructionsButton);
+        textResultsContainer.append(videosButton);
+        imageResultsContainer.append(imageContainer);
+        resultsRow.append(textResultsContainer);
+        resultsRow.append(imageResultsContainer);
+        resultsContainer.append(resultsRow);
+        resultsContainer.append(divider);
+
+        searchResults.append(resultsContainer);
+        //
     }
 
     var count = data.count;
@@ -122,10 +147,10 @@ function renderSearchResults(data) {
     var isFirstPage = currentPage === 0;
 
     var previousButton = $(
-        `<button class="left attached ui button" id="previous">Previous</button>`
+        `<button class="left attached teal ui button" id="previous">Previous</button>`
     );
     var nextButton = $(
-        `<button class="left attached ui button" id="next">Next</button>`
+        `<button class="left attached teal ui button" id="next">Next</button>`
     );
     searchResults.append(previousButton);
     if (isFirstPage) {

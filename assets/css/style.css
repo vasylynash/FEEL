@@ -3,8 +3,11 @@ body {
   }
 
 header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg);
+  background: 
+  /* linear-gradient(rgba(136, 133, 133, 0.5), rgba(88, 86, 86, 0.5)), */
+  linear-gradient(rgba(88, 86, 86, 0.5), rgba(240, 233, 233, 0.5)),
+  url("../images/header.jpg");
+    /* url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg); */
   background-size: cover;
   height: 30vh;
   margin-bottom: 10px;
@@ -12,7 +15,7 @@ header {
 
 .title {
   position: absolute;
-  top: 18%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -28,7 +31,7 @@ h1 {
 .quote {
   font-family: 'Courgette', cursive;
   position: absolute;
-  top: 28%;
+  top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -63,8 +66,27 @@ li:hover {
   color: red;
 }
 
+p {
+  /* font-family: "Source Sans Pro", sans-serif; */
+  font-weight: bolder;
+}
+
+#ingredients, #videos {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+#previous, #next {
+  padding-right: 1.5em;
+  margin: 5px;
+}
+
 @media screen and (max-width: 576px) {
   #history {
+    display: none;
+  }
+
+  #image-container {
     display: none;
   }
 }
