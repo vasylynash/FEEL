@@ -1,11 +1,12 @@
 body {
     font-family: "Source Sans Pro", sans-serif;
+    color: rgb(112, 106, 106);
   }
 
 header {
   background: 
   /* linear-gradient(rgba(136, 133, 133, 0.5), rgba(88, 86, 86, 0.5)), */
-  linear-gradient(rgba(88, 86, 86, 0.5), rgba(240, 233, 233, 0.5)),
+  linear-gradient(rgba(88, 86, 86, 0.5), rgba(247, 244, 244, 0.945)),
   url("../images/header.jpg");
     /* url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg); */
   background-size: cover;
@@ -60,15 +61,22 @@ li:hover {
 
 #more {
   padding-top: 1rem;
+  color:teal;
+  font-size: x-large;
+  font-style: italic;
 }
 
-.error {
-  color: red;
+#error {
+  margin-top: 10px;
 }
 
-p {
-  /* font-family: "Source Sans Pro", sans-serif; */
-  font-weight: bolder;
+#recipe-name {
+  font-family: 'Courgette', cursive;
+  color: black;
+}
+
+#recipe-name:hover {
+  cursor: pointer;
 }
 
 #ingredients, #videos {
@@ -79,6 +87,11 @@ p {
 #previous, #next {
   padding-right: 1.5em;
   margin: 5px;
+}
+
+#title {
+  padding: 20px;
+  text-align: center;
 }
 
 @media screen and (max-width: 576px) {

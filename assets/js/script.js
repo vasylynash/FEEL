@@ -21,8 +21,7 @@ function showRecipes() {
         REQUEST_URL +
         "?" +
         queryString +
-        `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE
-        }`;
+        `&app_id=${APP_ID}&app_key=${APP_KEY}&from=${PAGE_SIZE * currentPage}&to=${PAGE_SIZE * currentPage + PAGE_SIZE}`;
 
     fetch(url)
         .then(parseToJson)
@@ -70,6 +69,8 @@ function renderSearchResults(data) {
         throw "No results found";
     }
     searchResults.empty();
+    saveToLocalStorage(keyword);
+    renderHistory();
     for (let i = 0; i < recipes.length; i++) {
         const recipe = recipes[i];
         const name = recipe.recipe.label;
@@ -81,9 +82,6 @@ function renderSearchResults(data) {
         var sevings = recipe.recipe.yield;
 
         $("#ingredientsList").html("<p>" + ingredients.join("</p><p>") + "</p>");
-
-        // var resultSegment = $(`<div class="ui vertical segment"></div>`);
-        // var resultBody = $(`<div>`);
 
         var title = $(`<h3><a class="btn btn-link" href="${url}" target="_blank" rel="noopener noreferrer" id="recipe-name" value="${name}">${name}</a></h3>`);
         var bodyContentTime = time !== 0 ? $(`<p>Time to cook: ${time}</p>`) : "";
@@ -110,15 +108,6 @@ function renderSearchResults(data) {
             window.open(videoQueryString, "_blank")
         })
 
-        // resultBody.append(title);
-        // resultBody.append(bodyContentTime);
-        // resultBody.append(bodyContentCalories);
-        // resultBody.append(imageContainer);
-        // resultBody.append(instructionsButton);
-        // resultBody.append(videosButton);
-        // resultSegment.append(resultBody);
-        // searchResults.append(resultSegment);
-
         //NEW STAFF
         var resultsContainer = $(`<div class="ui internally celled grid" id="results">`);
         var resultsRow = $(`<div class="row">`);
@@ -126,17 +115,20 @@ function renderSearchResults(data) {
         var textResultsContainer = $(`<div class="ten wide column">`);
         var imageResultsContainer = $(`<div class="three wide column" id="image-container">`);
 
-        textResultsContainer.append(title);
-        textResultsContainer.append(bodyContentTime);
-        textResultsContainer.append(bodyContentCalories);
-        textResultsContainer.append(bodyServings);
-        textResultsContainer.append(instructionsButton);
-        textResultsContainer.append(videosButton);
+        textResultsContainer
+            .append(title)
+            .append(bodyContentTime)
+            .append(bodyContentCalories)
+            .append(bodyServings)
+            .append(instructionsButton)
+            .append(videosButton);
         imageResultsContainer.append(imageContainer);
-        resultsRow.append(textResultsContainer);
-        resultsRow.append(imageResultsContainer);
-        resultsContainer.append(resultsRow);
-        resultsContainer.append(divider);
+        resultsRow
+            .append(textResultsContainer)
+            .append(imageResultsContainer);
+        resultsContainer
+            .append(resultsRow)
+            .append(divider);
 
         searchResults.append(resultsContainer);
         //
@@ -198,8 +190,6 @@ function clearHistory() {
 submitBtn.on("click", function (event) {
     event.preventDefault();
     getUserInput();
-    saveToLocalStorage(keyword);
-    renderHistory();
     currentPage = 0;
     showRecipes();
 });
