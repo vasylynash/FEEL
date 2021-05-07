@@ -68,6 +68,11 @@ function renderSearchVideos(data) {
                             </button>`);
 
     videoResults.append(seeMoreButton);
+
 }
 
 getParams();
+
+videoResults.on("click", "#youtube", function () {
+    window.open(`https://www.youtube.com/results?search_query=${getSearchQuery()}`);
+})
