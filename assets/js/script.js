@@ -9,8 +9,8 @@ var clearButton = $("#clear");
 var keyword = "";
 var currentPage = 0;
 
-const APP_KEY = "4147e89469febd4e4e9264cc0a6e7cbe";
-const APP_ID = "c36e8feb";
+const APP_KEY = "8ce5cd98b83710c7e5b3ac9623b7aab1";
+const APP_ID = "6e4e2f53";
 const REQUEST_URL = "https://api.edamam.com/search";
 const PAGE_SIZE = 20;
 
@@ -36,7 +36,7 @@ function showRecipes() {
                                 <i class="search icon"></i>
                                 ${errorMessage}
                             </div>
-                        </div>`)
+                        </div>`);
             searchResults.append(error);
         });
 }
@@ -132,24 +132,44 @@ function renderSearchResults(data) {
         searchResults.append(resultsContainer);
     }
 
-    var count = data.count;
-    var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
-    var isFirstPage = currentPage === 0;
+    resultBody.append(title);
+    resultBody.append(bodyContentTime);
+    resultBody.append(bodyContentCalories);
+    resultBody.append(imageContainer);
+    resultBody.append(instructionsButton);
+    resultBody.append(videosButton);
+    resultSegment.append(resultBody);
+    searchResults.append(resultSegment);
+}
 
-    var previousButton = $(
-        `<button class="left attached teal ui button" id="previous">Previous</button>`
-    );
-    var nextButton = $(
-        `<button class="left attached teal ui button" id="next">Next</button>`
-    );
-    searchResults.append(previousButton);
-    if (isFirstPage) {
-        previousButton.addClass("disabled");
-    }
-    searchResults.append(nextButton);
-    if (isLastPage) {
-        nextButton.addClass("disabled");
-    }
+var count = data.count;
+var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
+var isFirstPage = currentPage === 0;
+
+resultBody.append(title);
+resultBody.append(bodyContentTime);
+resultBody.append(bodyContentCalories);
+resultBody.append(imageContainer);
+resultBody.append(instructionsButton);
+resultBody.append(videosButton);
+resultSegment.append(resultBody);
+searchResults.append(resultSegment);
+}
+
+var previousButton = $(
+    `<button class="left attached teal ui button" id="previous">Previous</button>`
+);
+var nextButton = $(
+    `<button class="left attached teal ui button" id="next">Next</button>`
+);
+searchResults.append(previousButton);
+if (isFirstPage) {
+    previousButton.addClass("disabled");
+}
+searchResults.append(nextButton);
+if (isLastPage) {
+    nextButton.addClass("disabled");
+}
 }
 
 function getUserInput() {
@@ -203,8 +223,7 @@ searchResults.on("click", "#previous", function () {
 });
 
 searchResults.on("click", "#ingredients", function () {
-    $("#modal")
-        .modal("show");
+    $("#modal").modal("show");
 });
 
 clearButton.on("click", clearHistory);
