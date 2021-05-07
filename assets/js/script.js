@@ -108,7 +108,6 @@ function renderSearchResults(data) {
             window.open(videoQueryString, "_blank")
         })
 
-        //NEW STAFF
         var resultsContainer = $(`<div class="ui internally celled grid" id="results">`);
         var resultsRow = $(`<div class="row">`);
         var divider = $(`<div class="ui divider">`)
@@ -131,7 +130,6 @@ function renderSearchResults(data) {
             .append(divider);
 
         searchResults.append(resultsContainer);
-        //
     }
 
     var count = data.count;
@@ -212,3 +210,9 @@ searchResults.on("click", "#ingredients", function () {
 clearButton.on("click", clearHistory);
 
 $(window).on("load", renderHistory);
+
+list.on("click", ".list-group-item", function () {
+    var searchTerm = $(this).attr("data-value");
+    searchKeyword.val(searchTerm);
+    showRecipes();
+})

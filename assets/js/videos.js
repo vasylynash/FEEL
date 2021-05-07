@@ -49,14 +49,7 @@ function searchVideos(url) {
 
 function renderSearchVideos(data) {
     var videosArray = data.items;
-    console.log(videosArray);
-    // var titleContainer = (`<div class="row">`);
-    // var titleSegment = (`<div class="ui segment">`);
-    // var title = $(`<h3>Search results for ${getSearchQuery()}</h3>`);
     $("h3").text(`Search results for "${getSearchQuery()}"`);
-    // videoResults.append(titleContainer);
-    // titleContainer.html(titleSegment);
-    // titleSegment.append(title);
 
     for (let i = 0; i < videosArray.length; i++) {
         const video = videosArray[i];
@@ -68,10 +61,13 @@ function renderSearchVideos(data) {
         videoResults.append(videoEl);
     }
     $('.ui.embed').embed();
-    // var seeMoreContainer = $(`<div class="ui segment">`);
-    var placeholder = $(`<a href="https://www.youtube.com/results?search_query=${encodeURIComponent(getSearchQuery())}" id="more">See more on YouTube</a>`)
-    // seeMoreContainer.append(placeholder);
-    videoResults.append(placeholder);
+
+    var seeMoreButton = $(`<button class="ui youtube button" id="youtube">
+                              <i class="youtube icon"></i>
+                                See more on YouTube
+                            </button>`);
+
+    videoResults.append(seeMoreButton);
 }
 
 getParams();
