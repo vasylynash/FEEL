@@ -119,10 +119,10 @@ function renderSearchResults(data) {
     var isFirstPage = currentPage === 0;
 
     var previousButton = $(
-        `<button class="left attached ui button" id="previous">Previous</button>`
+        `<button class="left attached ui button teal" id="previous">Previous</button>`
     );
     var nextButton = $(
-        `<button class="left attached ui button" id="next">Next</button>`
+        `<button class="left attached ui button teal" id="next">Next</button>`
     );
     searchResults.append(previousButton);
     if (isFirstPage) {
@@ -188,6 +188,7 @@ searchResults.on("click", "#previous", function () {
 
 searchResults.on("click", "#ingredients", function () {
     $("#modal")
+        .modal("setting", "transition", "fly left")
         .modal("show");
 });
 
