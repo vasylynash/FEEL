@@ -1,0 +1,12 @@
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate:hover {
+  overflow: visible; 
+    white-space: normal;
+    height:auto;
+}

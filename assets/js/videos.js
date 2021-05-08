@@ -49,15 +49,24 @@ function searchVideos(url) {
 
 function renderSearchVideos(data) {
     var videosArray = data.items;
-    $("h3").text(`Search results for "${getSearchQuery()}"`);
+    $("h2").text(`Search results for "${getSearchQuery()}"`);
+
 
     for (let i = 0; i < videosArray.length; i++) {
         const video = videosArray[i];
         let id = video.id.videoId;
+        let title = video.snippet.title;
+        let channel = video.snippet.channelTitle;
 
         var videoContainer = $(`<div class="ui embed" data-source="youtube" data-url="https://www.youtube.com/embed/${id}"></div>`);
         var videoEl = $(`<div class="four wide column"></div>`);
-        videoEl.append(videoContainer);
+        var titleEL = $(`<h5 class="truncate">${title}</h5>`);
+        var channelEl = $(`<p>Channel: ${channel}</p>`);
+
+        videoEl
+            .append(titleEL)
+            .append(channelEl)
+            .append(videoContainer);
         videoResults.append(videoEl);
     }
     $('.ui.embed').embed();

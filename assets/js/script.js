@@ -203,7 +203,9 @@ searchResults.on("click", "#previous", function () {
 });
 
 searchResults.on("click", "#ingredients", function () {
-    $("#modal").modal("show");
+    $("#modal")
+        .modal("setting", "transition", "horizontal flip")
+        .modal("show");
 });
 
 clearButton.on("click", clearHistory);

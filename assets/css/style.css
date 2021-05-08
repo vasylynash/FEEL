@@ -48,11 +48,8 @@ ul {
 }
 
 li:hover {
-    /* color: rgb(108, 108, 226) ; */
-    /* background-color: thistle; */
     cursor: pointer;
     font-size: large;
-    /* transform: scale(1.1); */
 }
 
 .footer {
