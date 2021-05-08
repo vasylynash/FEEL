@@ -140,36 +140,36 @@ function renderSearchResults(data) {
     resultBody.append(videosButton);
     resultSegment.append(resultBody);
     searchResults.append(resultSegment);
-}
 
-var count = data.count;
-var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
-var isFirstPage = currentPage === 0;
 
-resultBody.append(title);
-resultBody.append(bodyContentTime);
-resultBody.append(bodyContentCalories);
-resultBody.append(imageContainer);
-resultBody.append(instructionsButton);
-resultBody.append(videosButton);
-resultSegment.append(resultBody);
-searchResults.append(resultSegment);
-}
+    var count = data.count;
+    var isLastPage = (currentPage + 1) * PAGE_SIZE >= count;
+    var isFirstPage = currentPage === 0;
 
-var previousButton = $(
-    `<button class="left attached teal ui button" id="previous">Previous</button>`
-);
-var nextButton = $(
-    `<button class="left attached teal ui button" id="next">Next</button>`
-);
-searchResults.append(previousButton);
-if (isFirstPage) {
-    previousButton.addClass("disabled");
-}
-searchResults.append(nextButton);
-if (isLastPage) {
-    nextButton.addClass("disabled");
-}
+    resultBody.append(title);
+    resultBody.append(bodyContentTime);
+    resultBody.append(bodyContentCalories);
+    resultBody.append(imageContainer);
+    resultBody.append(instructionsButton);
+    resultBody.append(videosButton);
+    resultSegment.append(resultBody);
+    searchResults.append(resultSegment);
+
+
+    var previousButton = $(
+        `<button class="left attached teal ui button" id="previous">Previous</button>`
+    );
+    var nextButton = $(
+        `<button class="left attached teal ui button" id="next">Next</button>`
+    );
+    searchResults.append(previousButton);
+    if (isFirstPage) {
+        previousButton.addClass("disabled");
+    }
+    searchResults.append(nextButton);
+    if (isLastPage) {
+        nextButton.addClass("disabled");
+    }
 }
 
 function getUserInput() {
