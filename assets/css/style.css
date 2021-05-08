@@ -99,6 +99,10 @@ li:hover {
   margin-left: 13px;
 }
 
+#mobile-view {
+  display: none;
+}
+
 @media screen and (max-width: 576px) {
   #history {
     display: none;
@@ -107,4 +111,12 @@ li:hover {
   #image-container {
     display: none;
   }
+
+  form {
+    display: none;
+  }
+
+  #mobile-view {
+  display: block;
+}
 }

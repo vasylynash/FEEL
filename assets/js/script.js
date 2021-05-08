@@ -53,6 +53,7 @@ function buildQueryString() {
         }
     });
     var queryString = $.param(searchOptions);
+    console.log(queryString);
     return queryString;
 }
 
@@ -216,4 +217,10 @@ list.on("click", ".list-group-item", function () {
     var searchTerm = $(this).attr("data-value");
     searchKeyword.val(searchTerm);
     showRecipes();
+})
+
+$(document).ready(function () {
+    if ($(window).width() < 576) {
+        $("#temp").remove();
+    }
 })

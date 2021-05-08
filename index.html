@@ -27,7 +27,7 @@
   <div class="container">
     <div class="two column stackable ui grid">
       <div class="four wide column">
-        <form class="ui form segment">
+        <form class="ui form segment" id="temp">
           <div class="ui segment">
             <div class="input">
               <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
@@ -68,6 +68,56 @@
           </div>
           <button class="ui teal bottom attached button" type="submit" id="submit">Submit</button>
         </form>
+        <!-- new staff -->
+        <div class="ui attached stackable menu" id="mobile-view">
+          <div class="ui simple dropdown item">
+            More
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="ui segment">
+                <div class="input">
+                  <input type="text" name="Keyword" placeholder="Keyword" id="keyword" />
+                </div>
+              </div>
+              <div class="ui segment">
+                <select class="ui dropdown" id="cuisine">
+                  <i class="dropdown icon"></i>
+                  <option value="">Cuisine Type</option>
+                  <option value="American">American</option>
+                  <option value="Asian">Asian</option>
+                  <option value="British">British</option>
+                  <option value="Caribbean">Caribbean</option>
+                  <option value="Central Europe">Central Europe</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="Eastern Europe">Eastern Europe</option>
+                  <option value="French">French</option>
+                  <option value="Indian">Indian</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Kosher">Kosher</option>
+                  <option value="Mediterranean">Mediterranean</option>
+                  <option value="Mexican">Mexican</option>
+                  <option value="Middle Eastern">Middle Eastern</option>
+                  <option value="Nordic">Nordic</option>
+                  <option value="South American">South American</option>
+                  <option value="South East Asian">South East Asian</option>
+                </select>
+              </div>
+              <div class="ui segment">
+                <select class="ui dropdown" id="mealType">
+                  <option value="">Meal Type</option>
+                  <option value="Breakfast">Breakfast</option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
+                  <option value="Snack">Snack</option>
+                </select>
+              </div>
+              <button class="ui teal bottom attached button" type="submit" id="submit">Submit</button>
+
+            </div>
+          </div>
+        </div>
+        <!-- end new staff -->
         <div class="ui segment two wide column" id="history">
           <h4>Search History</h4>
           <ul class="list-group">
