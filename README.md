@@ -8,6 +8,7 @@ F.E.E.L (Find, Eat, Enjoy, Love) allows a user to search for a recipe based on c
 [Semantic UI](https://semantic-ui.com/), JavaScript, jQuery.
 APIs: [Edamam](https://developer.edamam.com/edamam-docs-recipe-api), [YouTube](https://developers.google.com/youtube/v3/docs/search/list).
 
+## Instructions: 
 On the main page, type in your keyword in the search field, and click **Submit**. Optionally, you can choose **Meal Type** and **Cuisine Type** from the dropdown menus.
 
 The search results with the recipes that match the keyword and selection will appear on the page.
