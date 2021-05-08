@@ -1,10 +1,15 @@
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: 'Lora', serif;
+    color: rgb(112, 106, 106);
   }
 
 header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg);
+  background: 
+  /* linear-gradient(rgba(136, 133, 133, 0.5), rgba(88, 86, 86, 0.5)), */
+  linear-gradient(rgba(88, 86, 86, 0.5), rgba(247, 244, 244, 0.548)),
+  /* url("../images/header.jpg"); */
+  url("../images/header1.png");
+    /* url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg); */
   background-size: cover;
   height: 30vh;
   margin-bottom: 10px;
@@ -12,7 +17,7 @@ header {
 
 .title {
   position: absolute;
-  top: 18%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -28,12 +33,16 @@ h1 {
 .quote {
   font-family: 'Courgette', cursive;
   position: absolute;
-  top: 28%;
+  top: 17%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
   white-space: nowrap;
+}
+
+#mealType, #cuisine, #keyword {
+  font-family: 'Lora', serif;
 }
 
 ul {
@@ -43,8 +52,11 @@ ul {
 }
 
 li:hover {
-    color: rgb(108, 108, 226) ;
+    /* color: rgb(108, 108, 226) ; */
+    /* background-color: thistle; */
     cursor: pointer;
+    font-size: large;
+    /* transform: scale(1.1); */
 }
 
 .footer {
@@ -57,14 +69,49 @@ li:hover {
 
 #more {
   padding-top: 1rem;
+  color:teal;
+  font-size: x-large;
+  font-style: italic;
 }
 
-.error {
-  color: red;
+#error {
+  margin-top: 10px;
+}
+
+#recipe-name {
+  font-family: 'Courgette', cursive;
+  color: black;
+}
+
+#recipe-name:hover {
+  cursor: pointer;
+}
+
+#ingredients, #videos {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+#previous, #next {
+  padding-right: 1.5em;
+  margin: 5px;
+}
+
+#title {
+  padding: 20px;
+  text-align: center;
+}
+
+#youtube {
+  margin-left: 13px;
 }
 
 @media screen and (max-width: 576px) {
   #history {
+    display: none;
+  }
+
+  #image-container {
     display: none;
   }
 }
