@@ -10,17 +10,19 @@ APIs: [Edamam](https://developer.edamam.com/edamam-docs-recipe-api), [YouTube](h
 On the main page, type in your keyword in the search field, and click **Submit**. Optionally, you can choose **Meal Type** and **Cuisine Type** from the dropdown menus.
 
 The search results with the recipes that match the keyword and selection will appear on the page.
-Each recipe has **calories count** and **time to cook** fields, and a small image of the dish.
+Each recipe has **calories count**, **servings**, and **time to cook** fields, and a small image of the dish.
 
 To see the ingredients needed for the meal, click the **Ingredients** button.
 To see the text instructions for the recipe, click the recipe title.
 To find videos on how to prepare the meal, click the **Find Videos** button.
 
-The video results will appear in a new tab.
+The video results (10) will appear in a new tab. To see more search results on YouTube, click the **See more on YouTube** button.
 
 [Deployed web app](https://vasylynash.github.io/FEEL/)
 
-![Landing page](assets/images/image.jpg)
+![Landing page](assets/images/landingPage.png)
+![Video search page](assets/images/videoResults.png)
+![Mobile view page](assets/images/mobileView.png)
 
 ## License:
 

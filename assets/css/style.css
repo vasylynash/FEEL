@@ -5,11 +5,7 @@ body {
 
 header {
   background: 
-  /* linear-gradient(rgba(136, 133, 133, 0.5), rgba(88, 86, 86, 0.5)), */
-  linear-gradient(rgba(88, 86, 86, 0.5), rgba(247, 244, 244, 0.548)),
-  /* url("../images/header.jpg"); */
-  url("../images/header1.png");
-    /* url(https://www.kanbrik.com/wp-content/uploads/2020/09/what-are-the-best-cuisine-and-food-destinations-in-the-world-.jpg); */
+  linear-gradient(rgba(88, 86, 86, 0.5), rgba(247, 244, 244, 0.548)), url("../images/header.png");
   background-size: cover;
   height: 30vh;
   margin-bottom: 10px;
